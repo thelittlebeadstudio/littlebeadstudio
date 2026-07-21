@@ -1,0 +1,15 @@
+# Netlify config — lets Netlify auto-detect these settings when you
+# connect the repo, instead of typing them into the dashboard.
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+# React Router uses client-side routing (e.g. /item/123), so any direct
+# visit or refresh on those URLs needs to be redirected back to index.html
+# for React to take over — otherwise Netlify returns a 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,25 @@
+# Render "Blueprint" config — lets Render auto-detect these settings
+# when you connect the repo, instead of typing them into the dashboard.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: littlebeadstudio-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: EMAIL_SERVICE
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: CONTACT_EMAIL
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: PORT
+        value: 5000
