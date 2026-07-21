@@ -23,10 +23,7 @@ export const sendContactMessage = async (req, res) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          // "onboarding@resend.dev" is Resend's shared test sender — it works
-          // immediately with no setup. Once you verify your own domain with
-          // Resend, switch this to something like "contact@littlebeadstudio.ca".
-          from: "Little Bead Studio <onboarding@resend.dev>",
+          from: "Little Bead Studio <contact@littlebeadstudio.ca>",
           to: process.env.CONTACT_EMAIL,
           reply_to: email,
           subject: `New inquiry from ${name}${itemInterest ? ` about "${itemInterest}"` : ""}`,
