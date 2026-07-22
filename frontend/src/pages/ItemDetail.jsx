@@ -7,12 +7,14 @@ export default function ItemDetail() {
   const { id } = useParams();
   const [item, setItem] = useState(null);
   const [status, setStatus] = useState("loading");
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     getItem(id)
       .then((data) => {
         setItem(data);
         setStatus("ready");
+        setActiveIndex(0); // reset in case this component is reused for a different item
       })
       .catch(() => setStatus("error"));
   }, [id]);
@@ -26,7 +28,8 @@ export default function ItemDetail() {
       </div>
     );
 
-  const placeholder = item.images?.[0] || null;
+  const images = item.images?.length > 0 ? item.images : [];
+  const activeImage = images[activeIndex] || null;
 
   return (
     <div className="container" style={{ paddingTop: 50, paddingBottom: 60 }}>
@@ -43,22 +46,47 @@ export default function ItemDetail() {
         }}
         className="item-detail-grid"
       >
-        <div
-          style={{
-            aspectRatio: "1 / 1",
-            borderRadius: "var(--radius)",
-            background: placeholder
-              ? `url(${placeholder}) center/cover`
-              : "linear-gradient(135deg, #21463E, #142B26)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {!placeholder && (
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--color-ink-muted)" }}>
-              photo coming soon
-            </span>
+        <div>
+          <div
+            style={{
+              aspectRatio: "1 / 1",
+              borderRadius: "var(--radius)",
+              background: activeImage
+                ? `url(${activeImage}) center/cover`
+                : "linear-gradient(135deg, #21463E, #142B26)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {!activeImage && (
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--color-ink-muted)" }}>
+                photo coming soon
+              </span>
+            )}
+          </div>
+
+          {images.length > 1 && (
+            <div style={{ display: "flex", gap: "10px", marginTop: "12px", flexWrap: "wrap" }}>
+              {images.map((img, i) => (
+                <button
+                  key={img + i}
+                  onClick={() => setActiveIndex(i)}
+                  aria-label={`Show photo ${i + 1} of ${images.length}`}
+                  aria-current={i === activeIndex}
+                  style={{
+                    width: "64px",
+                    height: "64px",
+                    borderRadius: "4px",
+                    padding: 0,
+                    background: `url(${img}) center/cover`,
+                    border: i === activeIndex ? "2px solid var(--color-amber)" : "2px solid transparent",
+                    opacity: i === activeIndex ? 1 : 0.6,
+                    transition: "opacity 0.15s ease, border-color 0.15s ease",
+                  }}
+                />
+              ))}
+            </div>
           )}
         </div>
 

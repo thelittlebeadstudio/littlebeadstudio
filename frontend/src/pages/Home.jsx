@@ -59,14 +59,14 @@ export default function Home() {
         <div className="eyebrow">Handmade beadwork</div>
         <h1>Every piece, strung by hand.</h1>
         <p>
-          Browse the current collection below — necklaces, bracelets, and earrings,
+          Browse the current collection below, necklaces, bracelets, and earrings,
           each one beaded one at a time. See something you like? Reach out and I'll
           let you know if it's still available or make you something similar.
         </p>
       </section>
 
       <div style={{ margin: "36px 0" }}>
-        <BeadDivider />
+        <BeadDivider count={32} />
       </div>
 
       {status === "loading" && <p>Loading the gallery… (this can take up to a minute on first load)</p>}

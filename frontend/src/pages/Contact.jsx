@@ -39,7 +39,7 @@ export default function Contact() {
     <div className="container" style={{ paddingTop: 60, paddingBottom: 60, maxWidth: "560px" }}>
       <div className="eyebrow">Get in touch</div>
       <h1>Ask about a piece, or request something custom.</h1>
-      <p>Fill this out and it'll come straight to my inbox — I usually reply within a couple of days.</p>
+      <p>Fill this out and it'll come straight to my inbox, I usually reply within a couple of days.</p>
 
       <BeadDivider palette="cool" count={16} />
 

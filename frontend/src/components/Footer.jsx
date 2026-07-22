@@ -16,7 +16,7 @@ export default function Footer() {
             fontSize: "0.85rem",
           }}
         >
-          <span>Little Bead Studio — handmade, one bead at a time.</span>
+          <span>Little Bead Studio</span>
           <span>&copy; {new Date().getFullYear()}</span>
         </div>
       </div>
