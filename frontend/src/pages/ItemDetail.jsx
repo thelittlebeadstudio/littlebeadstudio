@@ -24,7 +24,7 @@ export default function ItemDetail() {
     return (
       <div className="container" style={{ paddingTop: 60 }}>
         <p>Couldn't find that piece.</p>
-        <Link className="btn" to="/">Back to gallery</Link>
+        <Link className="btn" to="/gallery">Back to gallery</Link>
       </div>
     );
 
@@ -33,7 +33,7 @@ export default function ItemDetail() {
 
   return (
     <div className="container" style={{ paddingTop: 50, paddingBottom: 60 }}>
-      <Link to="/" style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--color-ink-muted)" }}>
+      <Link to="/gallery" style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--color-ink-muted)" }}>
         ← Back to gallery
       </Link>
 

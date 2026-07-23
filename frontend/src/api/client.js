@@ -17,5 +17,6 @@ async function request(path, options = {}) {
 
 export const getItems = () => request("/items");
 export const getItem = (id) => request(`/items/${id}`);
+export const getEvents = () => request("/events");
 export const sendContactMessage = (payload) =>
   request("/contact", { method: "POST", body: JSON.stringify(payload) });

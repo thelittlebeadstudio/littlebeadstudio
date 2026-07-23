@@ -28,8 +28,9 @@ export default function Navbar() {
           Little Bead Studio
         </NavLink>
         <div style={{ display: "flex", gap: "28px" }}>
-          <NavLink to="/" end style={linkStyle}>Gallery</NavLink>
-          <NavLink to="/about" style={linkStyle}>About</NavLink>
+          <NavLink to="/" end style={linkStyle}>Home</NavLink>
+          <NavLink to="/gallery" style={linkStyle}>Gallery</NavLink>
+          <NavLink to="/events" style={linkStyle}>Events</NavLink>
           <NavLink to="/contact" style={linkStyle}>Contact</NavLink>
         </div>
       </nav>
